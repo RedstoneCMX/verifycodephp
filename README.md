@@ -15,3 +15,6 @@ php实现的验证码程序
 ![页面展示效果](https://github.com/RedstoneCMX/verifycodephp/blob/master/showimages/show1.png)
 ![页面展示效果](https://github.com/RedstoneCMX/verifycodephp/blob/master/showimages/show2.png)
 ![页面展示效果](https://github.com/RedstoneCMX/verifycodephp/blob/master/showimages/show3.png)
+
+##注
+测试时，直接双击打开html文件浏览是不能看到验证码的，即url以“file”开头的，如：file:///E:/test.html，因为使用的是php生成验证码，必须要有web服务器的解析才行，因此一定要通过本地建立的虚拟网站或发布到外网进行测试，如 http://localhost/test.html
