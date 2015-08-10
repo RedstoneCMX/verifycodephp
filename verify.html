@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>验证码</title>
+<script type="text/javascript" src="js/jquery-2.1.1.min.js"></script>
+<link rel="stylesheet" type="text/css" href="css/verify.css"/>
+
+</head>
+<script type="text/javascript">
+	$(document).ready(function(){
+		//页面加载后请求验证码，重载请求时自动清空原来的验证码
+		rand_create();
+		
+		//检查验证码正确与否
+		$("#checkcode").click(function(){
+			var verifycode = $("#verifycode").val();
+			$.post("checkcode.php",{verifycode:verifycode},function(d){
+				d = eval('(' + d + ')');
+				alert(d.info);
+			});
+		});
+	});
+
+	function rand_create(){
+		document.getElementById('rand_create_img').src = 'rand_create.php/'+Math.random()*10000;
+		document.getElementById('verifycode').value='';
+	}
+</script>
+
+<body>
+	<h3>验证码程序</h3>
+	<div class="verifycontent">
+		
+
+		<input type="text" name="verifycode" id="verifycode">
+		
+	    <img id="rand_create_img" src="" title="看不清楚，换一张" style="cursor:pointer;" onClick="rand_create()" />
+
+	    <button class="btn" type="button" id="checkcode">提交验证码</button>
+	</div>
+</body>
+</html>
